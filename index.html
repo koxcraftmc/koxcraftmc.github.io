@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KoxCraft — Sklep</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #07000d;
+    color: white;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 35px 20px;
+    background: linear-gradient(135deg, #10001c, #300052);
+    border-bottom: 2px solid #a000ff;
+}
+
+.logo {
+    font-size: 48px;
+    font-weight: bold;
+    color: #c45cff;
+    text-shadow: 0 0 20px #9000ff;
+}
+
+.subtitle {
+    color: #aaa;
+    margin-top: 8px;
+}
+
+.ip {
+    margin-top: 20px;
+    color: #ddd;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 45px 20px;
+}
+
+.title {
+    text-align: center;
+    font-size: 34px;
+    color: #c45cff;
+    margin-bottom: 35px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.category {
+    background: #12001d;
+    border: 1px solid #4b0870;
+    border-radius: 15px;
+    padding: 35px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.category:hover {
+    transform: translateY(-6px);
+    border-color: #b000ff;
+    box-shadow: 0 0 25px #4b006b;
+}
+
+.category-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.category h2 {
+    color: #d36aff;
+    margin-bottom: 10px;
+}
+
+.category p {
+    color: #aaa;
+}
+
+.products {
+    display: none;
+}
+
+.products.active {
+    display: block;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.product {
+    background: #12001d;
+    border: 1px solid #4b0870;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+}
+
+.product-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.product h3 {
+    color: #d36aff;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.product p {
+    color: #aaa;
+    min-height: 45px;
+}
+
+.price {
+    font-size: 22px;
+    color: #7cff8b;
+    font-weight: bold;
+    margin: 18px 0;
+}
+
+.buy {
+    background: #9b00ff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.buy:hover {
+    background: #c02cff;
+}
+
+.back {
+    display: block;
+    margin: 0 auto 30px auto;
+    background: #250038;
+    color: white;
+    border: 1px solid #7900aa;
+    padding: 11px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.back:hover {
+    background: #3d005d;
+}
+
+.info {
+    text-align: center;
+    margin-top: 45px;
+    color: #888;
+}
+
+footer {
+    margin-top: 60px;
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid #35004c;
+    color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">⚔ KOXCRAFT ⚔</div>
+    <div class="subtitle">Oficjalny sklep serwera Minecraft</div>
+    <div class="ip">🌐 koxcraftsmp.aternos.me</div>
+</header>
+
+<div class="container">
+
+    <!-- KATEGORIE -->
+
+    <div id="categories">
+
+        <div class="title">
+            🛒 Wybierz, co chcesz kupić
+        </div>
+
+        <div class="categories">
+
+            <div class="category" onclick="showCategory('rangi')">
+                <div class="category-icon">👑</div>
+                <h2>Rangi</h2>
+                <p>VIP, SVIP i inne rangi</p>
+            </div>
+
+            <div class="category" onclick="showCategory('klucze')">
+                <div class="category-icon">🔑</div>
+                <h2>Klucze</h2>
+                <p>Klucze do specjalnych skrzyń</p>
+            </div>
+
+            <div class="category" onclick="showCategory('pety')">
+                <div class="category-icon">🐾</div>
+                <h2>Pety</h2>
+                <p>Wyjątkowe pety z efektami</p>
+            </div>
+
+            <div class="category" onclick="showCategory('przedmioty')">
+                <div class="category-icon">⚔️</div>
+                <h2>Przedmioty</h2>
+                <p>Specjalne przedmioty na serwer</p>
+            </div>
+
+        </div>
+
+        <div class="info">
+            Wybierz kategorię, aby zobaczyć dostępne produkty.
+        </div>
+
+    </div>
+
+
+    <!-- RANGI -->
+
+    <div id="rangi" class="products">
+
+        <div class="title">👑 Rangi</div>
+
+        <button class="back" onclick="backToCategories()">
+            ↩ POWRÓT
+        </button>
+
+        <div class="products-grid">
+
+            <div class="product">
+                <div class="product-icon">⭐</div>
+                <h3>VIP</h3>
+                <p>Ranga VIP na 30 dni</p>
+                <div class="price">10 zł</div>
+                <button class="buy" onclick="buy('VIP')">KUP</button>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">💎</div>
+                <h3>SVIP</h3>
+                <p>Ranga SVIP na 30 dni</p>
+                <div class="price">20 zł</div>
+                <button class="buy" onclick="buy('SVIP')">KUP</button>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">👑</div>
+                <h3>PREMIUM</h3>
+                <p>Specjalna ranga Premium</p>
+                <div class="price">30 zł</div>
+                <button class="buy" onclick="buy('PREMIUM')">KUP</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- KLUCZE -->
+
+    <div id="klucze" class="products">
+
+        <div class="title">🔑 Klucze</div>
+
+        <button class="back" onclick="backToCategories()">
+            ↩ POWRÓT
+        </button>
+
+        <div class="products-grid">
+
+            <div class="product">
+                <div class="product-icon">🔴</div>
+                <h3>Klucz Anarchii</h3>
+                <p>Klucz do Anarchicznej Skrzyni</p>
+                <div class="price">5 zł</div>
+                <button class="buy" onclick="buy('Klucz Anarchii')">KUP</button>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">🟢</div>
+                <h3>Klucz Rzadki</h3>
+                <p>Klucz do Rzadkiej Skrzyni</p>
+                <div class="price">7 zł</div>
+                <button class="buy" onclick="buy('Klucz Rzadki')">KUP</button>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">🟣</div>
+                <h3>Klucz Epicki</h3>
+                <p>Klucz do Epickiej Skrzyni</p>
+                <div class="price">10 zł</div>
+                <button class="buy" onclick="buy('Klucz Epicki')">KUP</button>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">🟡</div>
+                <h3>Klucz Petów</h3>
+                <p>Klucz do Skrzynki Petów</p>
+                <div class="price">8 zł</div>
+                <button class="buy" onclick="buy('Klucz Petów')">KUP</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- PETY -->
+
+    <div id="pety" class="products">
+
+        <div class="title">🐾 Pety</div>
+
+        <button class="back" onclick="backToCategories()">
+            ↩ POWRÓT
+        </button>
+
+        <div class="products-grid">
+
+            <div class="product">
+                <div class="product-icon">🍖</div>
+                <h3>Głodomórek</h3>
+                <p>Nigdy nie tracisz głodu.</p>
+                <div class="price">8 zł</div>
+                <button class="buy" onclick="buy('Głodomórek')">KUP</button>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">❤️</div>
+                <h3>Armorek</h3>
+                <p>Daje stałą Regenerację I.</p>
+                <div class="price">10 zł</div>
+                <button class="buy" onclick="buy('Armorek')">KUP</button>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">🐂</div>
+                <h3>Byczek</h3>
+                <p>Daje Siłę I.</p>
+                <div class="price">10 zł</div>
+                <button class="buy" onclick="buy('Byczek')">KUP</button>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">⚔️</div>
+                <h3>Mieczyk</h3>
+                <p>Szansa na zadanie x2 obrażeń.</p>
+                <div class="price">12 zł</div>
+                <button class="buy" onclick="buy('Mieczyk')">KUP</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- PRZEDMIOTY -->
+
+    <div id="przedmioty" class="products">
+
+        <div class="title">⚔️ Przedmioty</div>
+
+        <button class="back" onclick="backToCategories()">
+            ↩ POWRÓT
+        </button>
+
+        <div class="products-grid">
+
+            <div class="product">
+                <div class="product-icon">🗡️</div>
+                <h3>Anarchiczny Miecz</h3>
+                <p>Specjalny miecz z Anarchii.</p>
+                <div class="price">15 zł</div>
+                <button class="buy" onclick="buy('Anarchiczny Miecz')">KUP</button>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">⛏️</div>
+                <h3>Anarchiczny Kilof</h3>
+                <p>Potężny kilof do kopania.</p>
+                <div class="price">15 zł</div>
+                <button class="buy" onclick="buy('Anarchiczny Kilof')">KUP</button>
+            </div>
+
+            <div class="product">
+                <div class="product-icon">🪽</div>
+                <h3>Wzmocniona Elytra</h3>
+                <p>Specjalna elytra dla graczy.</p>
+                <div class="price">20 zł</div>
+                <button class="buy" onclick="buy('Wzmocniona Elytra')">KUP</button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 KoxCraft — Oficjalny sklep serwera
+</footer>
+
+
+<script>
+
+function showCategory(category) {
+
+    document.getElementById("categories").style.display = "none";
+
+    document.querySelectorAll(".products").forEach(function(element) {
+        element.classList.remove("active");
+    });
+
+    document.getElementById(category).classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+function backToCategories() {
+
+    document.querySelectorAll(".products").forEach(function(element) {
+        element.classList.remove("active");
+    });
+
+    document.getElementById("categories").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+function buy(product) {
+
+    alert(
+        "Wybrano: " + product +
+        "\\n\\nSystem płatności zostanie dodany później."
+    );
+
+}
+
+</script>
+
+</body>
+</html>
