@@ -92,6 +92,21 @@ header {
     color: #aaa;
 }
 
+/* PETY - ŻÓŁTY */
+
+#categories .category:nth-child(3) {
+    border-color: #ffd700;
+}
+
+#categories .category:nth-child(3) h2 {
+    color: #ffd700;
+}
+
+#categories .category:nth-child(3):hover {
+    border-color: #fff000;
+    box-shadow: 0 0 25px #ffd700;
+}
+
 .products {
     display: none;
 }
@@ -206,7 +221,7 @@ footer {
             <div class="category" onclick="showCategory('rangi')">
                 <div class="category-icon">👑</div>
                 <h2>Rangi</h2>
-                <p>VIP, SVIP i inne rangi</p>
+                <p>VIP, SVIP i Koksik</p>
             </div>
 
             <div class="category" onclick="showCategory('klucze')">
@@ -266,10 +281,10 @@ footer {
 
             <div class="product">
                 <div class="product-icon">👑</div>
-                <h3>PREMIUM</h3>
-                <p>Specjalna ranga Premium</p>
+                <h3>Koksik</h3>
+                <p>Specjalna ranga Koksik na 30 dni</p>
                 <div class="price">30 zł</div>
-                <button class="buy" onclick="buy('PREMIUM')">KUP</button>
+                <button class="buy" onclick="buy('Koksik')">KUP</button>
             </div>
 
         </div>
@@ -332,7 +347,7 @@ footer {
                 <div class="product-icon">🍖</div>
                 <h3>Głodomórek</h3>
                 <p>Nie tracisz głodu.</p>
-                <div class="price">6 zł</div>
+                <div class="price">5 zł</div>
                 <button class="buy" onclick="buy('Głodomórek')">KUP</button>
             </div>
 
@@ -340,7 +355,7 @@ footer {
                 <div class="product-icon">❤️</div>
                 <h3>Armorek</h3>
                 <p>Daje Regenerację I.</p>
-                <div class="price">6 zł</div>
+                <div class="price">5 zł</div>
                 <button class="buy" onclick="buy('Armorek')">KUP</button>
             </div>
 
@@ -348,7 +363,7 @@ footer {
                 <div class="product-icon">🐂</div>
                 <h3>Byczek</h3>
                 <p>Daje Siłę I.</p>
-                <div class="price">6 zł</div>
+                <div class="price">5 zł</div>
                 <button class="buy" onclick="buy('Byczek')">KUP</button>
             </div>
 
@@ -356,7 +371,7 @@ footer {
                 <div class="product-icon">⚔️</div>
                 <h3>Mieczyk</h3>
                 <p>20% szansy na zadanie x2 obrażeń.</p>
-                <div class="price">6 zł</div>
+                <div class="price">5 zł</div>
                 <button class="buy" onclick="buy('Mieczyk')">KUP</button>
             </div>
 
@@ -364,23 +379,15 @@ footer {
                 <div class="product-icon">🔮</div>
                 <h3>Perełka</h3>
                 <p>Przy 3 sercach teleportuje w losowe miejsce.</p>
-                <div class="price">6 zł</div>
+                <div class="price">5 zł</div>
                 <button class="buy" onclick="buy('Perełka')">KUP</button>
-            </div>
-
-            <div class="product">
-                <div class="product-icon">🛡️</div>
-                <h3>Instynkt</h3>
-                <p>20% szansy na uniknięcie ataku przeciwnika.</p>
-                <div class="price">6 zł</div>
-                <button class="buy" onclick="buy('Instynkt')">KUP</button>
             </div>
 
             <div class="product">
                 <div class="product-icon">👼</div>
                 <h3>Aniołek</h3>
                 <p>Daje efekt Powolnego Opadania.</p>
-                <div class="price">6 zł</div>
+                <div class="price">5 zł</div>
                 <button class="buy" onclick="buy('Aniołek')">KUP</button>
             </div>
 
@@ -388,7 +395,7 @@ footer {
                 <div class="product-icon">💨</div>
                 <h3>Wietrzyk</h3>
                 <p>Daje efekt Szybkości I.</p>
-                <div class="price">6 zł</div>
+                <div class="price">5 zł</div>
                 <button class="buy" onclick="buy('Wietrzyk')">KUP</button>
             </div>
 
@@ -396,7 +403,7 @@ footer {
                 <div class="product-icon">🔥</div>
                 <h3>Płomyk</h3>
                 <p>Daje odporność na ogień.</p>
-                <div class="price">6 zł</div>
+                <div class="price">5 zł</div>
                 <button class="buy" onclick="buy('Płomyk')">KUP</button>
             </div>
 
@@ -404,7 +411,7 @@ footer {
                 <div class="product-icon">⛏️</div>
                 <h3>Górnik</h3>
                 <p>Daje efekt Pośpiechu I.</p>
-                <div class="price">6 zł</div>
+                <div class="price">5 zł</div>
                 <button class="buy" onclick="buy('Górnik')">KUP</button>
             </div>
 
@@ -453,11 +460,9 @@ footer {
 
 </div>
 
-
 <footer>
     © 2026 KoxCraft — Oficjalny sklep serwera
 </footer>
-
 
 <script>
 
